@@ -36,21 +36,24 @@ public class Backend implements DataModel {
         activeTasks.add(newTask);
         activeTasks.sort(comparing(Task::getDeadline));
         // Might need to reverse order
-
-        int r = rand.nextInt(3);
-        if(r == 0) {
-            r = rand.nextInt(msgGens.size());
-            Message message = msgGens.get(r).generateMessage();
-            notifyObserversWith(message);
-        } else {
-            notifyObservers();
-        }
     }
 
     @Override
     public void removeTask(Task finishedTask) {
         activeTasks.remove(finishedTask);
         notifyObservers();
+
+        int r = rand.nextInt(3);
+        switch(r){
+            case 0:
+                r = rand.nextInt(msgGens.size());
+                Message message = msgGens.get(r).generateMessage();
+                notifyObserversWith(message);
+            case 1:
+                
+            default:
+                notifyObservers();
+        }
     }
 
     @Override

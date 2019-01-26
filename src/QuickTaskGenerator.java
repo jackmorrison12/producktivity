@@ -11,7 +11,7 @@ public class QuickTaskGenerator implements TaskGenerator {
     public QuickTaskGenerator() {
         Scanner sc = null;
         try {
-            sc = new Scanner(new File("FunThings/MotivationalQuotes.txt"));
+            sc = new Scanner(new File("FunThings/TextTasks.txt"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -24,7 +24,8 @@ public class QuickTaskGenerator implements TaskGenerator {
     @Override
     public Task getTask() {
         String task = tasks.get(rand.nextInt(tasks.size()));
-        Date in10mins = new Date(System.currentTimeMillis() + 600000);
-        return new Task(task, 60000, in10mins);
+        String[] taskInfo = task.split(";");
+        Date in10mins = new Date(System.currentTimeMillis() + Integer.getInteger(taskInfo[2])*60000);
+        return new Task(taskInfo[0], Integer.getInteger(taskInfo[1])*60000, in10mins);
     }
 }
