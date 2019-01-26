@@ -9,8 +9,8 @@ public class Task {
 
     public Task(String name, int duration, Date deadline) {
         this.name = name;
-        this.duration = duration;
         this.deadline = deadline;
+        this.duration = duration;
     }
 
     public void setStartTime(Date startTime) {
