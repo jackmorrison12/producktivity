@@ -3,14 +3,14 @@ import java.util.Date;
 public class Task {
 
     private final String name;
-    private final Date estimatedFinish;
+    private final int duration;
     private Date startTime;
     private final Date deadline;
 
-    public Task(String name, Date estimatedFinish, Date deadline) {
+    public Task(String name, int duration, Date deadline) {
         this.name = name;
-        this.estimatedFinish = estimatedFinish;
         this.deadline = deadline;
+        this.duration = duration;
     }
 
     public void setStartTime(Date startTime) {
@@ -25,8 +25,8 @@ public class Task {
         return startTime;
     }
 
-    public Date getEstimatedFinish() {
-        return estimatedFinish;
+    public int getDuration() {
+        return duration;
     }
 
     public Date getDeadline() {
