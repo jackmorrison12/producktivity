@@ -1,2 +1,1 @@
-# producktivity
-A duck-themed to-do chatbot 
+# producktivity - A duck-themed to-do chatbot 
