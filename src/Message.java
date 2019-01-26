@@ -4,8 +4,6 @@ public abstract class Message {
 
     private  enum messageType{TEXT,IMAGE};
 
-
-
     public String getMessageText() {
         return null;
     }
