@@ -1,6 +1,7 @@
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,26 +23,29 @@ public class RegisterPage implements Updatable {
     frame.setSize(300,300);
 
     JPanel titlePanel = new JPanel();
+    JPanel logoPanel = new JPanel();
     JPanel detailsPanel = new JPanel();
     titlePanel.setBackground(backgroundCol);
+    logoPanel.setBackground(backgroundCol);
     detailsPanel.setBackground(backgroundCol);
 
     frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
 
-    JLabel title = new JLabel("producktivity", JLabel.CENTER);
-    JTextField textfield = new JTextField(10);
-    Border titleBorder = BorderFactory
-        .createLineBorder(new Color(255, 152, 0), 3);
-    title.setBorder(titleBorder);
-    title.setBackground(new Color(255, 203,
-        61));
-    title.setOpaque(true);
+    ImageIcon imageIcon = new ImageIcon("water-logo.png");
+    JLabel icon = new JLabel(imageIcon);
 
     JLabel username = new JLabel("username: ");
+    Border userBorder = BorderFactory.createLineBorder(new Color(255, 203,
+        61), 3);
+    username.setBorder(userBorder);
+    username.setBackground(new Color(255, 227, 96));
+    username.setOpaque(true);
+
+    JTextField textfield = new JTextField(10);
 
     JButton enterButton = new JButton("enter");
 
-    titlePanel.add(title);
+    titlePanel.add(icon);
     detailsPanel.add(username);
     detailsPanel.add(textfield);
     detailsPanel.add(enterButton);
@@ -49,6 +53,7 @@ public class RegisterPage implements Updatable {
     frame.add(titlePanel);
     frame.add(detailsPanel);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.pack();
     frame.setVisible(true);
 
   }
